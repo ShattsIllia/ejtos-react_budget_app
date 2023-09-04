@@ -64,6 +64,14 @@ export const AppReducer = (state, action) => {
             return {
                 ...state,
             };
+        case 'CHANGE_BUDGET':
+                action.type = "DONE";
+                state.budget = action.payload;
+    
+                return {
+                    ...state,
+                    budget: [action.payload]
+                };    
         case 'CHG_CURRENCY':
             action.type = "DONE";
             state.currency = action.payload;
@@ -79,6 +87,7 @@ export const AppReducer = (state, action) => {
 // 1. Sets the initial state when the app loads
 const initialState = {
     budget: 2000,
+    currency: "$",
     expenses: [
         { id: "Marketing", name: 'Marketing', cost: 50 },
         { id: "Finance", name: 'Finance', cost: 300 },
